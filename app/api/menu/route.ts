@@ -1,0 +1,5 @@
+import { db } from "@/lib/db";
+import { getUser } from "@/lib/auth";
+const table = `CREATE TABLE IF NOT EXISTS menu_items (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, category TEXT NOT NULL, price REAL NOT NULL, description TEXT, available INTEGER DEFAULT 1, created_at TEXT DEFAULT (datetime('now')))`;
+export async function GET() { await db.execute(table); const { rows } = await db.execute("SELECT * FROM menu_items ORDER BY category,name"); return Response.json(rows); }
+export async function POST(req:Request) { const user=await getUser(req); if(!user?.isAdmin)return Response.json({error:"Unauthorized"},{status:403}); await db.execute(table); const b=await req.json(); if(!b.name||!b.category||Number.isNaN(Number(b.price)))return Response.json({error:"Name, category and price are required"},{status:400}); await db.execute({sql:"INSERT INTO menu_items (name,category,price,description,available) VALUES (?,?,?,?,?)",args:[b.name,b.category,Number(b.price),b.description??"",b.available===false?0:1]}); return Response.json({ok:true},{status:201}); }

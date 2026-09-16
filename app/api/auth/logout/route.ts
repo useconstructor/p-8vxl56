@@ -1,0 +1,1 @@
+export async function POST() { const h = new Headers({ "Content-Type":"application/json" }); h.append("Set-Cookie","session=; HttpOnly; Path=/; Max-Age=0"); return new Response(JSON.stringify({ok:true}),{headers:h}); }

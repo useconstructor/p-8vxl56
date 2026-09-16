@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "App",
-  description: "Built by Constructor",
+  title: "MenuFlow — Your Menu, Always Fresh",
+  description: "Update restaurant menus instantly and publish beautiful customer experiences in real time.",
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body>{children}</body>
     </html>
   );

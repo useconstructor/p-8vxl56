@@ -1,0 +1,13 @@
+{
+  "primaryColor": "#F8F7F5",
+  "secondaryColor": "#E8E8E8",
+  "backgroundColor": "#F8F7F5",
+  "textColor": "#1A1A1A",
+  "accentColor": "#D97E3A",
+  "fontHeading": "Montserrat",
+  "fontBody": "Inter",
+  "borderRadius": "0.375rem",
+  "logoText": "MenuFlow",
+  "logoImageUrl": null,
+  "tone": "professional"
+}
